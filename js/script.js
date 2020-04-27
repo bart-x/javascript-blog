@@ -57,12 +57,17 @@ for (let link of links) {
     function generateTitleLinks() {
 
         /* remove contents of titleList */
+        function clearMessages() {
+            document.getElementById('.titles').innerHTML = '';
+        }
 
         /* for each article */
 
         /* get the article id */
 
         /* find the title element */
+        const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+        console.log(articleTitle);
 
         /* get the title from the title element */
 
@@ -74,4 +79,19 @@ for (let link of links) {
 
     generateTitleLinks();
 
-}
+} const optArticleSelector = '';
+
+
+
+
+
+
+
+
+
+
+
+
+const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+console.log('linkHTML');
+
