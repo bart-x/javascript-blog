@@ -81,8 +81,7 @@ for (let link of links) {
 }
 
 generateTitleLinks();
-
-} const optArticleSelector = '';
+const optArticleSelector = '';
 
 
 
