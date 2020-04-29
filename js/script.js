@@ -58,15 +58,16 @@ for (let link of links) {
 
     /* remove contents of titleList */
     const titleList = document.querySelector(optTitleListSelector);
-    console.log(titleList);
     titleList.innerHTML = '';
+    console.log(titleList);
   }
 
   /* for each article */
+  const articles = document.querySelector(optArticleSelector);
   let html = '';
 
   /* get the article id */
-  const articleId = article.getAttribute('id');
+  const articleId = article.getAttribute(optArticleSelector);
 
   /* find the title element */
   const articleTitle = article.querySelector(optTitleSelector).innerHTML;
