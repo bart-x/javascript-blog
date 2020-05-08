@@ -86,7 +86,7 @@ function generateTags() {
   console.log(articles);
 
   /* START LOOP: for every article: */
-  for (let article of articles);
+  for (let article of articles) { // PYTANIE: dlaczego przy "for" jest tylko jeden { bez zamykającego?? */
 
     /* find tags wrapper */
     const tagsWrapper = document.querySelectorAll(optArticleTagsSelector);
@@ -104,16 +104,20 @@ function generateTags() {
     console.log(articleTagsArray);
 
     /* START LOOP: for each tag */
+    for(let tag of articleTagsArray) { // PYTANIE: dlaczego przy "for" jest tylko jeden { bez zamykającego?? */
 
       /* generate HTML of the link */
+      const linkHTML = '<li><a href="#tag-' + data-tags + '"><span>' + data-tags + '</span></a></li>';
+      console.log(generateHtml);
 
       /* add generated code to html variable */
 
     /* END LOOP: for each tag */
-
+    }
     /* insert HTML of all the links into the tags wrapper */
 
   /* END LOOP: for every article: */
+  }
 }
 
 generateTags();
