@@ -86,7 +86,8 @@ function generateTags() {
   console.log(articles);
 
   /* START LOOP: for every article: */
-  for (let article of articles) { // PYTANIE: dlaczego przy "for" jest tylko jeden { bez zamykającego?? */
+  for (let article of articles) {
+  /* PYTANIE: dlaczego przy "for" jest tylko jeden { bez zamykającego??????????????????? */
 
     /* find tags wrapper */
     const tagsWrapper = document.querySelectorAll(optArticleTagsSelector);
@@ -104,7 +105,9 @@ function generateTags() {
     console.log(articleTagsArray);
 
     /* START LOOP: for each tag */
-    for(let tag of articleTagsArray) { // PYTANIE: dlaczego przy "for" jest tylko jeden { bez zamykającego?? */
+    for(let tag of articleTagsArray) {
+    /* PYTANIE: dlaczego przy "for" jest tylko jeden { bez zamykającego??
+    oraz skąd tu się wziął "tag", że działa, skoro go nie ma w html'u??????????????????? */
 
       /* generate HTML of the link */
       const linkHTML = '<li><a href="#tag-' + data-tags + '"><span>' + data-tags + '</span></a></li>';
