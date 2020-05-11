@@ -83,14 +83,12 @@ generateTitleLinks();
 function generateTags() {
   /* find all articles */
   const articles = document.querySelectorAll(optArticleSelector);
-  console.log(articles);
 
   /* START LOOP: for every article: */
   for (let article of articles) {
-  /* PYTANIE: dlaczego przy "for" jest tylko jeden { bez zamykającego??????????????????? */
 
     /* find tags wrapper */
-    const tagsWrapper = document.querySelectorAll(optArticleTagsSelector);
+    const tagsWrapper = article.querySelector(optArticleTagsSelector);
     console.log(tagsWrapper);
 
     /* make html variable with empty string */
@@ -98,26 +96,23 @@ function generateTags() {
 
     /* get tags from data-tags attribute */
     const articleTags = article.getAttribute('data-tags');
-    console.log(articleTags);
 
     /* split tags into array */
     const articleTagsArray = articleTags.split(' ');
-    console.log(articleTagsArray);
 
     /* START LOOP: for each tag */
     for(let tag of articleTagsArray) {
-    /* PYTANIE: dlaczego przy "for" jest tylko jeden { bez zamykającego??
-    oraz skąd tu się wziął "tag", że działa, skoro go nie ma w html'u??????????????????? */
 
       /* generate HTML of the link */
-      const linkHTML = '<li><a href="#tag-' + data-tags + '"><span>' + data-tags + '</span></a></li>';
-      console.log(generateHtml);
+      const linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag + '</span></a></li>';
 
       /* add generated code to html variable */
+      html += linkHTML;
 
     /* END LOOP: for each tag */
     }
     /* insert HTML of all the links into the tags wrapper */
+    tagsWrapper.innerHTML = html;
 
   /* END LOOP: for every article: */
   }
