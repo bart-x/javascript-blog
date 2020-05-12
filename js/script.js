@@ -36,7 +36,7 @@ const titleClickHandler = function (event) {
 }
 
 
-function generateTitleLinks() {
+function generateTitleLinks(customSelector = '') {
 
   /* remove contents of titleList */
   const titleList = document.querySelector(optTitleListSelector);
@@ -44,8 +44,9 @@ function generateTitleLinks() {
 
 
   /* for each article */
-  const articles = document.querySelectorAll(optArticleSelector);
+  const articles = document.querySelectorAll(optArticleSelector + customSelector);
   let html = '';
+  console.log(articles);
 
   for (let article of articles) {
     /* get the article id */
@@ -53,11 +54,11 @@ function generateTitleLinks() {
 
     /* find the title element */
     const articleTitle = article.querySelector(optTitleSelector).innerHTML;
-    console.log(articleTitle);
+    // console.log(articleTitle);
 
     /* get the title from the title element */
     const articleTitleElement = article.getAttribute('article title');
-    console.log(titleList);
+    // console.log(titleList);
 
     /* create HTML of the link */
 
@@ -89,7 +90,7 @@ function generateTags() {
 
     /* find tags wrapper */
     const tagsWrapper = article.querySelector(optArticleTagsSelector);
-    console.log(tagsWrapper);
+    // console.log(tagsWrapper);
 
     /* make html variable with empty string */
     let html = '';
@@ -119,3 +120,83 @@ function generateTags() {
 }
 
 generateTags();
+
+function tagClickHandler(event) {
+
+  /* prevent default action for this event */
+  event.preventDefault();
+
+  /* make new constant named "clickedElement" and give it the value of "this" */
+  const clickedElement = this;
+  console.log(clickedThis);
+
+  /* make a new constant "href" and read the attribute "href" of the clicked element */
+  const href = clickedElement.getAttribute('href');
+  console.log(clickedHref);
+
+  /* make a new constant "tag" and extract tag from the "href" constant */
+  const tag = href.replace('#tag-', '');
+  console.log(tag);
+
+  /* find all tag links with class active */
+  const findTagLinks = document.querySelectorAll('a.active[href^="#tag-"]');
+  console.log(findTag);
+
+  /* START LOOP: for each active tag link */
+  for (let tag of findTagLinks) {
+
+    /* remove class active */
+    findTagLinks = activeLink.classList.remove('.active');
+    console.log(tagLink);
+
+  /* END LOOP: for each active tag link */
+}
+  /* find all tag links with "href" attribute equal to the "href" constant */
+  const findTagLinksHref = article.querySelectorAll('href');
+  console.log(findTagLinksHref);
+
+  /* START LOOP: for each found tag link */
+for (findTagLinksHref of findTagLinks) {
+
+    /* add class active */
+    findTagLinksHref.classList.add('active');
+
+  /* END LOOP: for each found tag link */
+}
+  /* execute function "generateTitleLinks" with article selector as argument */
+  generateTitleLinks('[data-tags~="' + tag + '"]');
+}
+
+function addClickListenersToTags() {
+  /* find all links to tags */
+  const findTagLinks = document.querySelectorAll('a.active[href^="#tag-"]');
+  console.log(findTagLinks);
+
+  /* START LOOP: for each link */
+  for (tagLink of findTagLinks);
+
+  /* add tagClickHandler as event listener for that link */
+  tagLink.addEventListener('click', 'tagClickHandler');
+
+  /* END LOOP: for each link */
+}
+
+addClickListenersToTags();
+
+function generateAuthors() {
+
+ /*W każdym artykule dodaj autora w atrybucie data-author (usuń autora z wrappera .post-author)*/
+
+  /*Wyświetl autora jako link we wrapperze post-author, pod tytułem artykułu*/
+
+  /*powiąż kliknięcie w link do autora z wygenerowaniem przefiltrowanej listy artykułów*/
+
+  /*Funkcja generateAuthors będzie prostsza niż generateTags, ponieważ jest tylko jeden autor artykułu
+  – nie musisz dzielić tego pola funkcją split, ani wykonywać pętli podobnej do tej iterującej po tagach.
+  Dla każdego artykułu będzie tylko jeden link do autora.    optArticleAuthorSelector = '.post-author';**/
+
+  /*Nie musisz w żaden sposób zmieniać funkcji generateTitleLinks – wystarczy,
+że w funkcji authorClickHandler wywołasz ją z odpowiednim argumentem.
+Pamiętaj, że w tym wypadku w selektorze atrybutu użyjesz łącznika = zamiast ~=*/
+
+}
