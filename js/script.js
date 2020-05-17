@@ -175,7 +175,7 @@ function addClickListenersToTags() {
   console.log(findTagLinks);
 
   /* START LOOP: for each link */
-  for (let tagLink of findTagLinks); {
+  for (let tagLink of findTagLinks) {
 
     /* add tagClickHandler as event listener for that link */
     tagLink.addEventListener('click', tagClickHandler);
